@@ -10,6 +10,7 @@ const testlist: string[] = Array(
   "ｷﾒ5",
   "ﾒ5+ｷﾒ",
   "ﾐﾚﾄ",
+  "ﾂﾒ2+ﾂﾒ2+ﾂﾒ2",
 );
 
 test( 'ｷｸｼ+ﾒ4は"235+0000 = 2350000"になる', (): void => {
@@ -46,4 +47,8 @@ test( 'ﾒ5+ｷﾒは"ﾒで始まることは適切ではありません: 00000
 
 test( 'ﾐﾚﾄは"この記号は使用できません: ﾐ"', (): void => {
   expect( (): string => changeTag( testlist[ 8 ] ) ).toThrow( new Error("この記号は使用できません: ﾐ") );
+} );
+
+test( 'ﾂﾒ2+ﾂﾒ2+ﾂﾒ2は"800+800+800 = 2400になる"', (): void => {
+  expect( changeTag( testlist[ 9 ] ) ).toStrictEqual( "2400" );
 } );

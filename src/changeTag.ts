@@ -85,6 +85,8 @@ function changeTag ( val: string ): string {
       throw new Error( `ﾒで始まることは適切ではありません: ${textArray[ 0 ]}` );
     }
 
+    // 2つ目以降の要素を格納する配列
+    const nextElements: string[] = Array();
     for ( let i: number = 1; i < textArray.length; i++ ) {
       // textArray[i]の要素が0で始まる場合
       if ( textArray[ i ].startsWith( '0' ) ) {
@@ -94,8 +96,15 @@ function changeTag ( val: string ): string {
       } else { // textArray[i]の要素が0以外で始まる場合
         // 最初の要素とtextArray[i]を数値に変換して足す
         const firstNumVal: number = Number( textArray[ 0 ] );
-        const nonZeroVal: number = Number( textArray[ i ] );
-        const sumVal: number = firstNumVal + nonZeroVal;
+
+        nextElements.push( textArray[ i ] );
+        // 2つ目以降の要素を足していくための変数
+        let nextValues: number = 0;
+        for(let j: number = 0; j < nextElements.length; j++) {
+          nextValues += Number( nextElements[ j ] );
+        }
+        // 最初の要素と2つ目以降の要素を足す
+        const sumVal: number = firstNumVal + nextValues;
         returnText = String( sumVal );
       }
     }
