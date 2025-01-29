@@ -1,0 +1,21 @@
+{
+  "name": "convert-symbols-to-numbers",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "test": "npx jest",
+    "ts": "npx ts-node index.ts",
+    "output": "npx ts-node index.ts > output.csv"
+  },
+  "keywords": ["convert", "symbols", "numbers"],
+  "author": "Wataru Adachi",
+  "license": "MIT",
+  "description": "Convert symbols to numbers according to certain rules",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
